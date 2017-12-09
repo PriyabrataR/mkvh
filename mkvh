@@ -1,0 +1,21 @@
+#!/bin/bash
+mkdir -p /var/www/$1/public_html
+cat >/etc/apache2/sites-available/$1.conf <<EOL
+<VirtualHost *:80>
+ServerAdmin webmaster@$1
+ServerName $1
+ServerAlias www.$1
+DocumentRoot /var/www/$1/public_html
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+EOL
+echo "<center><h1>Hello From $1</h1></center>" > /var/www/$1/public_html/index.html
+a2ensite $1.conf
+a2dissite 000-default.conf
+systemctl restart apache2
+echo "done"
+cd /var/www/$1/public_html/
+pwd
+ls -l
+echo "You can find the webroot folder for $1 in /var/www/$1/public_html/"
