@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Webroots in /var/www location:"
+ls -l /var/www
