@@ -8,6 +8,9 @@ ServerAlias www.$1
 DocumentRoot /var/www/$1/public_html
 ErrorLog ${APACHE_LOG_DIR}/error.log
 CustomLog ${APACHE_LOG_DIR}/access.log combined
+<Directory /var/www/$1/public_html>
+    AllowOverride all
+</Directory>
 </VirtualHost>
 EOL
 echo "<center><h1>Hello From $1</h1></center>" > /var/www/$1/public_html/index.html
