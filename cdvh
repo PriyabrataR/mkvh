@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /var/www/$1/public_html/
+pwd
+bash
