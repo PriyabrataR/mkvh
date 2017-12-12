@@ -22,3 +22,7 @@ mkvh example.com
 # How to list and see all virtual hosts on the system
 
 lsvh
+
+# How to move to the webroot of a virtual host
+
+cdvh example.com
